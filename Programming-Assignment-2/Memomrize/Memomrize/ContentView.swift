@@ -13,7 +13,7 @@ struct ContentView: View {
     var body: some View {
         VStack{
             HStack() {
-                Text("0")
+                Text("\(modelView.score)")
                 Spacer()
                 Text("Memorize!")
                     .padding(.leading, 65.0)
