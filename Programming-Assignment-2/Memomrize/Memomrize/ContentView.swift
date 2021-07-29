@@ -20,8 +20,19 @@ struct ContentView: View {
 //                    .padding(.trailing, 30.0)
                     
                 Spacer()
-                Button(action: {}){
-                    Text("New Game")
+                Button(action: {
+                    modelView.changeTheme(Int.random(in: 0..<EmojiMemoryGame.theme.count))
+                }){
+                    let newGame = RoundedRectangle(cornerRadius: 25)
+                    // Text("New Game")
+                    ZStack {
+                        newGame.fill()
+                        Text("New Game")
+                            .foregroundColor(.white)
+                            .padding(0)
+                        
+                    }
+                    .frame(width: 100, height: 40, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
                 }.font(/*@START_MENU_TOKEN@*/.headline/*@END_MENU_TOKEN@*/)
             }
             .padding(0.0)
@@ -48,7 +59,7 @@ struct ContentView: View {
                     Image(systemName: "lessthan.circle")
                 })
                 Spacer()
-                Text("Theme: Flags")
+                Text("Theme: \(EmojiMemoryGame.themeName[modelView.themeInd])")
                 Spacer()
                 Button(action: {
                         print("sdadsa")
